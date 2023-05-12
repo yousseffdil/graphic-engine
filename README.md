@@ -7,6 +7,8 @@ A continuación se muestra el diagrama de clases del proyecto:
 <div align="center">
     <img src="./preview/preview.png" width="320" height="400">
 </div>
+
+
 ## Descripción del Proyecto
 
 El proyecto consiste en una ventana que muestra un cuadrado que rota alrededor de su centro. El cuadrado tiene una velocidad inicial y una aceleración constante que simula una gravedad hacia abajo.
