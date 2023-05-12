@@ -36,6 +36,21 @@ Si el cuadrado colisiona con el plano, se simula un rebote invirtiendo su direcc
 - Visual Studio 2019 o superior.
 - .NET Framework 4.7.2 o superior.
 
+**Informe de Errores - Proceso de Desarrollo**
+
+Durante el proceso de desarrollo del proyecto, se encontraron varios errores que afectaron el funcionamiento y la integración de las diferentes partes del sistema. A continuación, se detallan los errores más relevantes experimentados:
+
+1. **Error en la carga de la textura emisiva**: Inicialmente, se intentó cargar la textura emisiva utilizando la clase `TextureBrush` de la biblioteca `System.Drawing`. Sin embargo, se generó una excepción `ArgumentException` con el mensaje "Parameter is not valid". Esto se debió a una incompatibilidad entre la ruta del archivo de la textura y la ubicación desde donde se estaba ejecutando la aplicación. La solución fue proporcionar la ruta absoluta del archivo de textura para asegurarse de que se encontrara correctamente.
+
+2. **Error de referencia a la biblioteca OpenTK**: Al intentar utilizar la biblioteca OpenTK para trabajar con OpenGL, se encontró un error de referencia, especificamente "OpenTK not found". Esto se debe a que la biblioteca OpenTK no estaba instalada en el entorno de desarrollo. La solución fue instalar la biblioteca OpenTK a través de NuGet o mediante la descarga manual e incorporarla al proyecto.
+
+3. **Error de compatibilidad entre OpenGL y OpenTK**: Una vez solucionado el error de referencia a OpenTK, se encontraron errores adicionales al intentar utilizar las clases y métodos de OpenGL a través de OpenTK. Esto se debe a diferencias de versiones y compatibilidad entre OpenGL y OpenTK. Para resolver estos errores, es necesario asegurarse de utilizar las versiones correctas y compatibles de OpenGL y OpenTK, y ajustar el código en consecuencia.
+
+4. **Errores sintácticos y de lógica**: Durante la integración del código en diferentes archivos y clases, se encontraron errores sintácticos y de lógica que causaron un funcionamiento incorrecto o inesperado del sistema. Estos errores incluyen typos, mal uso de métodos y parámetros, falta de llamadas a métodos necesarios, entre otros. La solución consistió en revisar cuidadosamente el código, depurarlo paso a paso y corregir los errores encontrados.
+
+5. **Errores de rendimiento**: En algunos casos, el rendimiento del sistema pudo verse afectado debido a la forma en que se realizaban los cálculos o las llamadas a OpenGL. Estos errores se manifestaron en una baja tasa de cuadros por segundo (FPS) o en una ejecución lenta de la aplicación. Para solucionar estos problemas, se requirió optimizar el código, revisar la lógica de los cálculos y evitar llamadas innecesarias a OpenGL.
+
+En resumen, el desarrollo de este proyecto presentó desafíos relacionados con la carga de texturas, la integración de OpenGL a través de OpenTK y la corrección de errores sintácticos y de lógica. La resolución de estos errores requirió un enfoque de depuración sistemático, la instalación de bibliotecas adecuadas y la optimización del rendimiento. A medida que se solucionaron los errores, el sistema pudo funcionar correctamente y mostrar la textura emisiva en pantalla.
 ## Ejecución del Proyecto
 
 1. Clona este repositorio en tu máquina local o descarga el código fuente.
@@ -44,5 +59,3 @@ Si el cuadrado colisiona con el plano, se simula un rebote invirtiendo su direcc
 2. Abre el proyecto en Visual Studio.
 3. Compila y ejecuta el proyecto.
 4. Se abrirá una ventana donde podrás ver el cuadrado rotando y colisionando con el plano.
-
-¡Disfruta del motor gráfico!
