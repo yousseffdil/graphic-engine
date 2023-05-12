@@ -37,7 +37,7 @@ Si el cuadrado colisiona con el plano, se simula un rebote invirtiendo su direcc
 - Visual Studio 2019 o superior.
 - .NET Framework 4.7.2 o superior.
 
-##Informe de Errores - Proceso de Desarrollo
+## Informe de Errores - Proceso de Desarrollo
 
 Durante el proceso de desarrollo del proyecto, se encontraron varios errores que afectaron el funcionamiento y la integración de las diferentes partes del sistema. A continuación, se detallan los errores más relevantes experimentados:
 
