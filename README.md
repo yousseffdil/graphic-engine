@@ -31,6 +31,7 @@ El proyecto consiste en una ventana que muestra un cuadrado que rota alrededor d
 
 Si el cuadrado colisiona con el plano, se simula un rebote invirtiendo su dirección vertical.
 
+
 ## Requisitos del Proyecto
 
 - Visual Studio 2019 o superior.
