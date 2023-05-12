@@ -5,7 +5,7 @@ Este proyecto es una implementación básica de un motor gráfico en C# utilizan
 
 A continuación se muestra el diagrama de clases del proyecto:
 <div align="center">
-    <img src="./preview/preview.png" width="320" height="400">
+    <img src="./preview/preview.png" width="100%" height="400vh">
 </div>
 
 
