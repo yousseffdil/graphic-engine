@@ -1,28 +1,36 @@
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Numerics;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MiMotorGrafico
+namespace MiMotorGraficoOpenGL
 {
     public class Ventana : Form
     {
         private System.Threading.Timer timer;
         private Square square;
         private Plane plane;
+        private OpenGLRenderer renderer;
 
         public Ventana()
         {
             // Configuración de la ventana
             this.ClientSize = new Size(800, 600);
-            this.Text = "Mi Motor Gráfico";
+            this.Text = "Mi Motor Gráfico OpenGL";
             this.DoubleBuffered = true;
 
             // Creación del cuadrado y el plano
             square = new Square(new Vector2(400, 100), 50, 10);
             plane = new Plane(new Vector2(0, 400), 800, 200);
+
+            // Inicializar el renderizador de OpenGL
+            renderer = new OpenGLRenderer();
+            renderer.Initialize();
+
+            // Cargar la textura emisiva
+            string texturePath = "C:\\Users\\fdily\\source\\repos\\WinFormsApp1\\WinFormsApp1\\emissive_texture.png"; // Reemplaza con la ruta de tu propia textura emisiva
+            renderer.LoadTexture(texturePath);
 
             // Configuración del temporizador
             timer = new System.Threading.Timer(Timer_Tick, null, 0, 16);
@@ -49,14 +57,11 @@ namespace MiMotorGrafico
             // Obtener el objeto Graphics para dibujar
             Graphics g = e.Graphics;
 
-            // Limpiar el fondo
-            g.Clear(Color.Black);
+            // Llamar al renderizador de OpenGL para dibujar la escena
+            renderer.Render(square, plane);
 
-            // Dibujar el plano
-            g.FillRectangle(Brushes.Gray, plane.Position.X, plane.Position.Y, plane.Width, plane.Height);
-
-            // Dibujar el cuadrado
-            g.FillRectangle(Brushes.GreenYellow, square.Position.X, square.Position.Y, square.Size, square.Size);
+            // Actualizar el contenido del Graphics con lo dibujado por OpenGL
+            g.Flush();
         }
 
         [STAThread]
@@ -80,7 +85,7 @@ namespace MiMotorGrafico
             Size = size;
             Mass = mass;
             Velocity = Vector2.Zero;
-            Acceleration = new Vector2(0, 1); // Simulamos una aceleración gravitatoria hacia abajo
+            Acceleration = new Vector2(0, 2); // Simulamos una aceleración gravitatoria hacia abajo
         }
 
         public void UpdatePosition()
@@ -117,3 +122,4 @@ namespace MiMotorGrafico
         }
     }
 }
+
